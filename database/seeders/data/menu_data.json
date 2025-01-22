@@ -1,0 +1,370 @@
+[
+    {
+        "name": "Bruschetta al Pomodoro",
+        "description": "Fette di pane tostato con pomodori freschi e basilico.",
+        "price": 7.00,
+        "category": "antipasto",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Carpaccio di Manzo",
+        "description": "Fette sottili di manzo con rucola e scaglie di parmigiano.",
+        "price": 12.00,
+        "category": "antipasto",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Frittura di Calamari",
+        "description": "Calamari fritti serviti con salsa aioli.",
+        "price": 10.50,
+        "category": "antipasto",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Crostini Misti",
+        "description": "Selezione di crostini con vari condimenti.",
+        "price": 8.00,
+        "category": "antipasto",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Olive Ascolane",
+        "description": "Olive farcite e fritte, tipiche delle Marche.",
+        "price": 9.00,
+        "category": "antipasto",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Pasta al Pomodoro",
+        "description": "Pasta con salsa di pomodoro fresco e basilico.",
+        "price": 10.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Lasagna alla Bolognese",
+        "description": "Strati di pasta con ragù di carne e besciamella.",
+        "price": 15.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Spaghetti Aglio e Olio",
+        "description": "Spaghetti con aglio, olio d'oliva e peperoncino.",
+        "price": 9.50,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Fettuccine Alfredo",
+        "description": "Fettuccine con crema di parmigiano e burro.",
+        "price": 13.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Gnocchi di Patate",
+        "description": "Gnocchi freschi con salsa di pomodoro e basilico.",
+        "price": 11.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Pasta alla Carbonara",
+        "description": "Pasta con guanciale, uova e pecorino romano.",
+        "price": 14.50,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Ravioli di Ricotta e Spinaci",
+        "description": "Ravioli ripieni di ricotta e spinaci con burro e salvia.",
+        "price": 16.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Pasta al Forno",
+        "description": "Pasta al forno con ragù, mozzarella e besciamella.",
+        "price": 12.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Tagliatelle al Tartufo",
+        "description": "Tagliatelle con crema al tartufo e parmigiano.",
+        "price": 18.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Pasta con Sgombro",
+        "description": "Pasta con sgombro affumicato e pomodorini.",
+        "price": 13.50,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Margherita",
+        "description": "Pizza con pomodoro, mozzarella e basilico.",
+        "price": 8.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Pepperoni",
+        "description": "Pizza con pomodoro, mozzarella e salame piccante.",
+        "price": 9.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Quattro Stagioni",
+        "description": "Pizza con pomodoro, mozzarella, funghi, prosciutto e carciofi.",
+        "price": 10.50,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Capricciosa",
+        "description": "Pizza con pomodoro, mozzarella, prosciutto, funghi e olive.",
+        "price": 10.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Diavola",
+        "description": "Pizza con pomodoro, mozzarella e salame piccante.",
+        "price": 9.50,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Vegetariana",
+        "description": "Pizza con pomodoro, mozzarella e verdure grigliate.",
+        "price": 9.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Hawaiiana",
+        "description": "Pizza con pomodoro, mozzarella, prosciutto e ananas.",
+        "price": 10.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Funghi e Mozzarella",
+        "description": "Pizza con pomodoro, mozzarella e funghi freschi.",
+        "price": 9.50,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Salsiccia e Friarielli",
+        "description": "Pizza con pomodoro, mozzarella, salsiccia e friarielli.",
+        "price": 11.00,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Pizza Bianca",
+        "description": "Pizza senza pomodoro, con mozzarella, ricotta e rosmarino.",
+        "price": 10.50,
+        "category": "primo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Saltimbocca alla Romana",
+        "description": "Fettine di vitello con prosciutto e salvia, cotte nel vino bianco.",
+        "price": 18.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Pollo alla Cacciatora",
+        "description": "Pollo cucinato con pomodori, olive e rosmarino.",
+        "price": 16.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Branzino al Sale",
+        "description": "Branzino cotto al forno in crosta di sale.",
+        "price": 22.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Osso Buco",
+        "description": "Stinco di vitello cucinato lentamente con gremolata.",
+        "price": 20.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Melanzane alla Parmigiana",
+        "description": "Strati di melanzane, salsa di pomodoro e mozzarella al forno.",
+        "price": 15.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Tiramisu",
+        "description": "Dolce al cucchiaio con mascarpone, caffè e cacao.",
+        "price": 6.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Panna Cotta",
+        "description": "Crema cotta servita con salsa di frutti di bosco.",
+        "price": 5.50,
+        "category": "dolce",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Cannoli Siciliani",
+        "description": "Cialde croccanti ripiene di ricotta e gocce di cioccolato.",
+        "price": 7.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Profiteroles",
+        "description": "Bignè ripieni di crema e ricoperti di cioccolato.",
+        "price": 6.50,
+        "category": "dolce",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Torta della Nonna",
+        "description": "Crostata con crema pasticcera e pinoli.",
+        "price": 5.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Patate al Forno",
+        "description": "Patate arrosto con rosmarino e olio d'oliva.",
+        "price": 5.00,
+        "category": "contorno",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Verdure Grigliate",
+        "description": "Selezione di verdure di stagione grigliate.",
+        "price": 6.00,
+        "category": "contorno",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Insalata Mista",
+        "description": "Insalata fresca con pomodori, cetrioli e carote.",
+        "price": 4.50,
+        "category": "contorno",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Fagiolini al Vapore",
+        "description": "Fagiolini freschi cotti al vapore e conditi.",
+        "price": 5.50,
+        "category": "contorno",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Cavolfiore Gratinate",
+        "description": "Cavolfiore al forno con besciamella e formaggio.",
+        "price": 6.50,
+        "category": "contorno",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Acqua Naturale",
+        "description": "Acqua minerale naturale.",
+        "price": 2.00,
+        "category": "bevande",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Acqua Frizzante",
+        "description": "Acqua minerale frizzante.",
+        "price": 2.50,
+        "category": "bevande",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Coca-Cola",
+        "description": "Bibita gassata al gusto di cola.",
+        "price": 3.00,
+        "category": "bevande",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Birra Artigianale",
+        "description": "Birra artigianale locale.",
+        "price": 5.00,
+        "category": "bevande",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Vino Rosso della Casa",
+        "description": "Vino rosso locale servito al calice.",
+        "price": 4.00,
+        "category": "bevande",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Vino Bianco della Casa",
+        "description": "Vino bianco locale servito al calice.",
+        "price": 4.00,
+        "category": "bevande",
+        "is_available": true,
+        "image": "https://via.placeholder.com/150"
+    }
+]

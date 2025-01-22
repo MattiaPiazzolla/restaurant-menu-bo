@@ -1,7 +1,8 @@
 <?php
-
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Rotta per la visualizzazione dell'index dei menu
+// Route::get('/menus', [MenuController::class, 'index'])->name('menus.index');
+// Route::get('/menus/{id}', [MenuController::class, 'show'])->name('menus.show');
+// Route::get('/menus/create', [MenuController::class, 'edit'])->name('menus.edit');
+Route::resource('menus', MenuController::class);
+
 
 require __DIR__.'/auth.php';

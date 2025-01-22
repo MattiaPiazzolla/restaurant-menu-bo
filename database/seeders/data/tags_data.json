@@ -1,0 +1,78 @@
+[
+    {
+        "name": "Glutine"
+    },
+    {
+        "name": "Lattosio"
+    },
+    {
+        "name": "Nocciola"
+    },
+    {
+        "name": "Mandorla"
+    },
+    {
+        "name": "Peanut"
+    },
+    {
+        "name": "Soia"
+    },
+    {
+        "name": "Pesce"
+    },
+    {
+        "name": "Crostacei"
+    },
+    {
+        "name": "Uova"
+    },
+    {
+        "name": "Sedano"
+    },
+    {
+        "name": "Sesamo"
+    },
+    {
+        "name": "Frutta a Guscio"
+    },
+    {
+        "name": "Solfiti"
+    },
+    {
+        "name": "Molluschi"
+    },
+    {
+        "name": "Cereali"
+    },
+    {
+        "name": "Arachidi"
+    },
+    {
+        "name": "Lupini"
+    },
+    {
+        "name": "Cacao"
+    },
+    {
+        "name": "Caffè"
+    },
+    {
+        "name": "Spezie"
+    }, {
+        "name": "Vegano"
+    },
+    {
+        "name": "Vegetariano"
+    },{
+        "name": "Piccante"
+    },
+    {
+        "name": "Biologico"
+    },
+    {
+        "name": "Stagionale"
+    },
+    {
+        "name": "Tradizionale"
+    }
+]
