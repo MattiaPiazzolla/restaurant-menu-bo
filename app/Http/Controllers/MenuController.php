@@ -16,33 +16,46 @@ class MenuController extends Controller
      */
     public function index(Request $request)
     {
-        // Costruzione della query per la ricerca e il filtraggio
-        $menus = Menu::query();
+        $query = Menu::query();
     
-        // Filtro per categoria
-        if ($request->has('category') && $request->category != '') {
-            $menus->where('category', $request->category);
-        }
+        // Define categories
+        $categories = [
+            'antipasto' => ['🥗', 'Antipasto'],
+            'primo' => ['🍝', 'Primo'],
+            'secondo' => ['🥩', 'Secondo'],
+            'contorno' => ['🥬', 'Contorno'],
+            'dolce' => ['🍰', 'Dolce'],
+            'bevande' => ['🥤', 'Bevande']
+        ];
     
-        // Filtro per tag
-        if ($request->has('tags') && !empty($request->tags)) {
-            $menus->whereHas('tags', function ($query) use ($request) {
-                $query->whereIn('tags.id', $request->tags);
+        // Apply search filter
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhereHas('tags', function ($q2) use ($search) {
+                      $q2->where('name', 'like', "%{$search}%");
+                  });
             });
         }
     
-        // Ricerca per nome
-        if ($request->has('search') && $request->search != '') {
-            $menus->where('name', 'like', '%' . $request->search . '%');
+        // Apply category filter
+        if ($request->filled('category')) {
+            $category = $request->input('category');
+            $query->where('category', $category); // Exact match with category
         }
     
-        // Esegui la query e prendi i risultati
-        $menus = $menus->get();
+        // Apply tags filter (if applicable)
+        if ($request->filled('tags')) {
+            $tags = $request->input('tags');
+            $query->whereHas('tags', function ($q) use ($tags) {
+                $q->whereIn('id', $tags);
+            });
+        }
     
-        // Passa i tag per il filtro
-        $tags = Tag::all();
+        $menus = $query->with('tags')->get();
     
-        return view('menus.index', compact('menus', 'tags'));
+        return view('menus.index', compact('menus', 'categories'));
     }
 
     /**
@@ -52,18 +65,16 @@ class MenuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-{
-    $menu = Menu::with('tags')->findOrFail($id);  
-    return view('menus.show', compact('menu'));
-}
-
+    {
+        $menu = Menu::with('tags')->findOrFail($id);  
+        return view('menus.show', compact('menu'));
+    }
 
     public function create()
-{
-    $tags = Tag::all();  
-    return view('menus.create', compact('tags'));
-}
-
+    {
+        $tags = Tag::all();  
+        return view('menus.create', compact('tags'));
+    }
 
     /**
      * Crea un nuovo piatto nel menu.
@@ -109,7 +120,7 @@ class MenuController extends Controller
     {
         $menu = Menu::findOrFail($id);
         $tags = Tag::all();  // Carica tutti i tag dalla tabella tags
-        return view('menus.edit', compact('menu', 'tags'));  // Passa $tags alla vista
+        return view('menus.edit', compact('menu', 'tags'));  
     }
 
     /**
@@ -135,7 +146,7 @@ class MenuController extends Controller
         ]);
     
         // Aggiorna i dati del piatto
-        $menuData = $request->only(['name', 'description', 'price', 'category']);
+        $menuData = $request->only(['name', 'description', 'price', 'category', 'is_available']);
     
         // Gestisci il caricamento della nuova immagine
         if ($request->hasFile('image')) {

@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
-
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="antialiased">
     <div id="app" class="min-h-screen flex flex-col">
@@ -85,6 +85,7 @@
             });
         });
     </script>
+    @stack('scripts')
 </body>
 </html>
 

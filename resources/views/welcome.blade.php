@@ -55,9 +55,6 @@
                 <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-100"></span>
                 <span class="w-2 h-2 bg-pink-500 rounded-full animate-pulse delay-200"></span>
             </div>
-            <p class="text-sm text-gray-500 font-light">
-                Un sistema semplice e potente per la gestione del menu del tuo ristorante.
-            </p>
         </div>
     </div>
 </div>

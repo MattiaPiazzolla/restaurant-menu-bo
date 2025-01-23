@@ -1,6 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if (session('success'))
+<div class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
+    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-lg relative"
+         style="animation: fadeInOut 5s forwards;">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            {{ session('success') }}
+        </div>
+        <div class="mt-2">
+            <div class="slider" style="width: 100%; height: 2px; background-color: #e2e8f0;">
+                <div class="slider-fill" style="width: 100%; height: 100%; background-color: #48bb78; transition: width 5s linear;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-100%); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-100%); }
+}
+</style>
+@endif
+
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white px-4 py-12">
     <div class="max-w-3xl mx-auto">
         <div class="mb-12">
@@ -18,6 +47,7 @@
                 step: 1,
                 price: '{{ old('price', $menu->price) }}',
                 imagePreview: '{{ asset('storage/' . $menu->image) }}',
+                isAvailable: {{ old('is_available', $menu->is_available) ? 'true' : 'false' }},
                 showValidationError: false,
                 formatPrice(e) {
                     let value = e.target.value.replace(/[^\d.]/g, '');
@@ -135,9 +165,12 @@
                     <label for="is_available" class="flex items-center justify-between text-sm font-medium text-gray-700 mb-2">
                         <span>Disponibile</span>
                         <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="hidden" name="is_available" value="0">
                             <input type="checkbox" name="is_available" id="is_available"
+                                value="1"
+                                x-model="isAvailable"
                                 class="sr-only peer"
-                                {{ old('is_available', $menu->is_available) ? 'checked' : '' }}>
+                                {{ $menu->is_available ? 'checked' : '' }}>
                             <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 
                                        peer-focus:ring-blue-300 rounded-full peer 
                                        peer-checked:after:translate-x-full peer-checked:after:border-white 
@@ -145,7 +178,7 @@
                                        after:bg-white after:border-gray-300 after:border after:rounded-full 
                                        after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
                             <span class="ml-3 text-sm font-medium text-gray-700">
-                                <span x-text="$el.previousElementSibling.previousElementSibling.checked ? 'Sì' : 'No'"></span>
+                                <span x-text="isAvailable ? 'Sì' : 'No'"></span>
                             </span>
                         </label>
                     </label>
