@@ -33,7 +33,7 @@
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white px-4 py-12">
     <div class="max-w-3xl mx-auto">
         <div class="mb-12">
-            <a href="{{ route('menus.index') }}" class="inline-flex items-center text-sm text-gray-500 hover:text-gray-900 mb-8 group">
+            <a href="{{ route('menus.index') }}" class="inline-flex items-center text-lg text-gray-500 hover:text-gray-900 mb-8 group">
                 <svg class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>

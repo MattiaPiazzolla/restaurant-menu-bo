@@ -172,117 +172,168 @@
             </a>
         </div>
     
-    <div id="tableView" class="overflow-x-auto block">
-        <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
-            <thead class="bg-gray-50 text-gray-800 uppercase text-xs font-medium tracking-wider">
-                <tr>
-                    <th class="py-3 px-6 text-left">Nome</th>
-                    <th class="py-3 px-6 text-left">Prezzo</th>
-                    <th class="py-3 px-6 text-left hidden md:table-cell">Tag</th>
-                    <th class="py-3 px-6 text-left hidden md:table-cell">Pasto</th>
-                    <th class="py-3 px-6 text-center">Comandi</th>
-                </tr>
-            </thead>
-            <tbody class="text-gray-600 text-sm">
-                @foreach ($menus as $menu)
-                    <tr class="border-b border-gray-100 hover:bg-indigo-50 transition-colors ease-in-out duration-300">
-                        <td class="py-3 px-6 text-left font-medium text-gray-800">{{ $menu->name }}</td>
-                        <td class="py-3 px-6 text-left text-gray-600">€{{ number_format($menu->price, 2) }}</td>
-                        <td class="py-3 px-6 text-left hidden md:table-cell">
-                            <div class="flex flex-wrap space-x-2">
-                                @foreach ($menu->tags as $tag)
-                                    <span class="inline-block bg-gray-200 text-gray-700 text-xs font-medium py-1 px-3 rounded-full hover:bg-indigo-200 hover:text-indigo-700 transition-all duration-200 ease-in-out">{{ $tag->name }}</span>
-                                @endforeach
-                            </div>
-                        </td>
-                        <td class="py-3 px-6 text-left hidden md:table-cell">
-                            <div class="flex flex-wrap space-x-2">
-                                @foreach (explode(',', $menu->category) as $category)
-                                    <span class="inline-block bg-gray-200 text-gray-700 text-xs font-medium py-1 px-3 rounded-full hover:bg-blue-200 hover:text-blue-700 transition-all duration-200 ease-in-out">{{ trim($category) }}</span>
-                                @endforeach
-                            </div>
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            <div class="flex items-center justify-center space-x-4">
-                                <a href="{{ url('menus/' . $menu->id) }}" class="text-gray-600 p-3 rounded-full hover:bg-indigo-100 hover:text-indigo-600 transition duration-200 ease-in-out">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.5 4.5L15 19m4.5-4.5H3" />
-                                    </svg>
-                                </a>
-                                <a href="{{ url('menus/' . $menu->id . '/edit') }}" class="text-gray-600 p-3 rounded-full hover:bg-yellow-100 hover:text-yellow-600 transition duration-200 ease-in-out">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-2 2h8l2-2v-8l-2-2h-8l-2 2v8z" />
-                                    </svg>
-                                </a>
-                                <button type="button" @click="showDeleteModal = true; currentMenuId = {{ $menu->id }}" class="text-gray-600 p-3 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-200 ease-in-out">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </td>
+        <div id="tableView" class="overflow-x-auto block">
+            <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                <thead class="bg-gray-50 text-gray-800 uppercase text-xs font-medium tracking-wider">
+                    <tr>
+                        <th class="py-3 px-6 text-left"></th>
+                        <th class="py-3 px-6 text-left">Nome</th>
+                        <th class="py-3 px-6 text-left hidden md:table-cell">Prezzo</th>
+                        <th class="py-3 px-6 text-left hidden md:table-cell">Tag</th>
+                        <th class="py-3 px-6 text-left hidden md:table-cell">Pasto</th>
+                        <th class="py-3 px-6 text-center">Comandi</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody class="text-gray-600 text-sm">
+                    @foreach ($menus as $menu)
+                        <tr class="border-b border-gray-100 hover:bg-indigo-50 transition-colors ease-in-out duration-300 {{ $menu->is_available ? '' : 'opacity-50' }}">
+                            <td class="py-3 px-6 text-left font-medium text-gray-800">
+                                <div class="flex items-center">
+                                    <img class="h-10 w-10 rounded-full object-cover mr-3" src="{{ asset('storage/' . $menu->image) }}" alt="{{ $menu->name }}">
+                                </div>
+                            </td>
+                            <td>
+                                @if (!$menu->is_available)
+                                <span class="inline-block h-2 w-2 rounded-full bg-red-500"></span>
+                                @endif
+                                <span class="{{ $menu->is_available ? '' : 'line-through' }}">{{ $menu->name }}</span>
+                            </td>
+                            <td class="py-3 px-6 text-left text-gray-600 hidden md:table-cell">€{{ number_format($menu->price, 2) }}</td>
+                            <td class="py-3 px-6 text-left hidden md:table-cell">
+                                <div class="flex flex-wrap space-x-2">
+                                    @foreach ($menu->tags as $tag)
+                                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium py-1 px-3 rounded-full hover:bg-blue-200 transition-all duration-200 ease-in-out">{{ $tag->name }}</span>
+                                    @endforeach
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-left hidden md:table-cell">
+                                <div class="flex flex-wrap space-x-2">
+                                    @php
+                                        $categories = [
+                                            'antipasto' => ['Antipasto', 'bg-yellow-100 text-yellow-800'],
+                                            'primo' => ['Primo', 'bg-orange-100 text-orange-800'],
+                                            'secondo' => ['Secondo', 'bg-red-100 text-red-800'],
+                                            'contorno' => ['Contorno', 'bg-green-100 text-green-800'],
+                                            'dolce' => ['Dolce', 'bg-pink-100 text-pink-800'],
+                                            'bevande' => ['Bevande', 'bg-blue-100 text-blue-800']
+                                        ];
+                                    @endphp
+                                    @foreach (explode(',', $menu->category) as $category)
+                                        @php
+                                            $category = trim(strtolower($category));
+                                            $categoryInfo = $categories[$category] ?? [ ucfirst($category), 'bg-gray-100 text-gray-800'];
+                                        @endphp
+                                        <span class="inline-block {{ $categoryInfo[1] }} text-xs font-medium py-1 px-3 rounded-full hover:bg-opacity-80 transition-all duration-200 ease-in-out">
+                                            {{ $categoryInfo[0] }}
+                                        </span>
+                                    @endforeach
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-center">
+                                <div class="flex items-center justify-center space-x-4">
+                                    <a href="{{ url('menus/' . $menu->id) }}" class="text-gray-600 p-3 rounded-full hover:bg-indigo-100 hover:text-indigo-600 transition duration-200 ease-in-out">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                    </a>
+                                    <a href="{{ url('menus/' . $menu->id . '/edit') }}" class="text-gray-600 p-3 rounded-full hover:bg-yellow-100 hover:text-yellow-600 transition duration-200 ease-in-out">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        </svg>
+                                    </a>
+                                    <button type="button" @click="showDeleteModal = true; currentMenuId = {{ $menu->id }}" class="text-gray-600 p-3 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-200 ease-in-out">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     
-    <div id="cardView" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
-        @foreach ($menus as $menu)
-            <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 hover:shadow-lg transition-all duration-300 ease-in-out">
-                <!-- Image or Fallback -->
-                <div class="w-full h-32 bg-gray-200 rounded-lg overflow-hidden">
-                    @if($menu->image)
-                        <img src="{{ asset('storage/' . $menu->image) }}" alt="{{ $menu->name }}" class="w-full h-full object-cover">
-                    @else
-                        <div class="w-full h-full flex items-center justify-center text-gray-400">
-                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
+        <div id="cardView" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach ($menus as $menu)
+                <div class="relative group h-full">
+                    <a href="{{ url('menus/' . $menu->id) }}" class="block h-full no-underline">
+                        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 transition-all duration-300 ease-in-out transform hover:scale-[1.02] hover:shadow-lg {{ $menu->is_available ? '' : 'opacity-75' }} h-full flex flex-col">
+                            <!-- Image or Fallback -->
+                            <div class="w-full h-48 bg-gray-100 rounded-xl overflow-hidden mb-4 flex-shrink-0 transition-transform duration-300 ease-in-out group-hover:scale-[1.03]">
+                                @if($menu->image)
+                                    <img src="{{ asset('storage/' . $menu->image) }}" alt="{{ $menu->name }}" class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110">
+                                @else
+                                    <div class="w-full h-full flex items-center justify-center text-gray-400">
+                                        <svg class="w-16 h-16 transition-transform duration-300 ease-in-out group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                @endif
+                            </div>
+            
+                            <!-- Card Content -->
+                            <div class="flex-grow flex flex-col">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-semibold text-xl text-gray-700 {{ $menu->is_available ? '' : 'line-through' }} transition-colors duration-300 ease-in-out group-hover:text-gray-900">{{ $menu->name }} @if (!$menu->is_available)
+                                        <span class="inline-block h-2 w-2 rounded-full bg-red-500 mb-2"></span>
+                                    @endif</h3>
+                                    <p class="text-lg font-medium text-gray-700 transition-colors duration-300 ease-in-out group-hover:text-gray-900">€{{ number_format($menu->price, 2) }}</p>
+                                </div>
+                                
+                                
+    
+                                <!-- Categories -->
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    @php
+                                        $categories = [
+                                            'antipasto' => ['🥗', 'Antipasto', 'bg-yellow-100 text-yellow-800'],
+                                            'primo' => ['🍝', 'Primo', 'bg-orange-100 text-orange-800'],
+                                            'secondo' => ['🥩', 'Secondo', 'bg-red-100 text-red-800'],
+                                            'contorno' => ['🥬', 'Contorno', 'bg-green-100 text-green-800'],
+                                            'dolce' => ['🍰', 'Dolce', 'bg-pink-100 text-pink-800'],
+                                            'bevande' => ['🥤', 'Bevande', 'bg-blue-100 text-blue-800']
+                                        ];
+                                    @endphp
+                                    @foreach (explode(',', $menu->category) as $category)
+                                        @php
+                                            $category = trim(strtolower($category));
+                                            $categoryInfo = $categories[$category] ?? ['🍽️', ucfirst($category), 'bg-gray-100 text-gray-800'];
+                                        @endphp
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium {{ $categoryInfo[2] }} transition-all duration-300 ease-in-out hover:shadow-md hover:scale-105">
+                                            {{ $categoryInfo[0] }} {{ $categoryInfo[1] }}
+                                        </span>
+                                    @endforeach
+                                </div>
+    
+                                <!-- Tags -->
+                                <div class="flex flex-wrap gap-2 mt-auto">
+                                    @foreach ($menu->tags as $tag)
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:shadow-md hover:scale-105">{{ $tag->name }}</span>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
-                    @endif
-                </div>
-    
-                <!-- Card Content -->
-                <h3 class="font-medium text-lg text-gray-800 mt-4">{{ $menu->name }}</h3>
-                <p class="text-gray-600">€{{ number_format($menu->price, 2) }}</p>
-                
-                <!-- Tags -->
-                <div class="flex flex-wrap space-x-2 my-2">
-                    @foreach ($menu->tags as $tag)
-                        <span class="inline-block bg-gray-200 text-gray-700 text-xs font-medium py-1 px-3 rounded-full">{{ $tag->name }}</span>
-                    @endforeach
-                </div>
-    
-                <!-- Categories -->
-                <div class="flex flex-wrap space-x-2 my-2">
-                    @foreach (explode(',', $menu->category) as $category)
-                        <span class="inline-block bg-gray-200 text-gray-700 text-xs font-medium py-1 px-3 rounded-full">{{ trim($category) }}</span>
-                    @endforeach
-                </div>
-    
-                <!-- Actions -->
-                <div class="flex items-center justify-around mt-4">
-                    <a href="{{ url('menus/' . $menu->id) }}" class="text-indigo-600 hover:text-indigo-800 transition duration-200 ease-in-out flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.5 4.5L15 19m4.5-4.5H3" />
-                        </svg>
                     </a>
-                    <a href="{{ url('menus/' . $menu->id . '/edit') }}" class="text-yellow-600 hover:text-yellow-800 transition duration-200 ease-in-out flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-2 2h8l2-2v-8l-2-2h-8l-2 2v8z" />
-                        </svg>
-                    </a>
-                    <button type="button" @click="showDeleteModal = true; currentMenuId = {{ $menu->id }}" class="text-red-600 hover:text-red-800 transition duration-200 ease-in-out flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+    
+                    <!-- Floating Action Buttons -->
+                    <div class="absolute top-2 right-2 flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                        <a href="{{ url('menus/' . $menu->id . '/edit') }}" class="bg-white text-yellow-600 hover:text-yellow-800 p-2 rounded-full shadow-md transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        </a>
+                        <button type="button" @click.stop="showDeleteModal = true; currentMenuId = {{ $menu->id }}" class="bg-white text-red-600 hover:text-red-800 p-2 rounded-full shadow-md transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div>
     
    
 
