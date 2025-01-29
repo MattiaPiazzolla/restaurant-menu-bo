@@ -1,370 +1,554 @@
 [
     {
-        "name": "Bruschetta al Pomodoro",
-        "description": "Fette di pane tostato con pomodori freschi e basilico.",
-        "price": 7.00,
-        "category": "antipasto",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Carpaccio di Manzo",
-        "description": "Fette sottili di manzo con rucola e scaglie di parmigiano.",
+        "name": "Tagliere di Salumi e Formaggi",
+        "description": "Assortment of cured meats and local cheese served with Crostolo.",
         "price": 12.00,
         "category": "antipasto",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Frittura di Calamari",
-        "description": "Calamari fritti serviti con salsa aioli.",
-        "price": 10.50,
-        "category": "antipasto",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Crostini Misti",
-        "description": "Selezione di crostini con vari condimenti.",
-        "price": 8.00,
-        "category": "antipasto",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Olive Ascolane",
-        "description": "Olive farcite e fritte, tipiche delle Marche.",
-        "price": 9.00,
-        "category": "antipasto",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Pasta al Pomodoro",
-        "description": "Pasta con salsa di pomodoro fresco e basilico.",
+        "name": "Tartare di Manzo",
+        "description": "Beef tartare with crispy Sardinian bread, grana cheese, tomatoes, green sauce and yogurt.",
         "price": 10.00,
-        "category": "primo",
+        "category": "antipasto",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Lasagna alla Bolognese",
-        "description": "Strati di pasta con ragù di carne e besciamella.",
-        "price": 15.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Spaghetti Aglio e Olio",
-        "description": "Spaghetti con aglio, olio d'oliva e peperoncino.",
-        "price": 9.50,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Fettuccine Alfredo",
-        "description": "Fettuccine con crema di parmigiano e burro.",
-        "price": 13.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Gnocchi di Patate",
-        "description": "Gnocchi freschi con salsa di pomodoro e basilico.",
-        "price": 11.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Pasta alla Carbonara",
-        "description": "Pasta con guanciale, uova e pecorino romano.",
-        "price": 14.50,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Ravioli di Ricotta e Spinaci",
-        "description": "Ravioli ripieni di ricotta e spinaci con burro e salvia.",
-        "price": 16.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Pasta al Forno",
-        "description": "Pasta al forno con ragù, mozzarella e besciamella.",
+        "name": "Antipasto del Montefeltro",
+        "description": "Traditional appetizer of Montefeltro: coratella, tripe with tomato sauce and beans with pork rinds.",
         "price": 12.00,
-        "category": "primo",
+        "category": "antipasto",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Tagliatelle al Tartufo",
-        "description": "Tagliatelle con crema al tartufo e parmigiano.",
-        "price": 18.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Pasta con Sgombro",
-        "description": "Pasta con sgombro affumicato e pomodorini.",
-        "price": 13.50,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Margherita",
-        "description": "Pizza con pomodoro, mozzarella e basilico.",
-        "price": 8.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Pepperoni",
-        "description": "Pizza con pomodoro, mozzarella e salame piccante.",
-        "price": 9.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Quattro Stagioni",
-        "description": "Pizza con pomodoro, mozzarella, funghi, prosciutto e carciofi.",
-        "price": 10.50,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Capricciosa",
-        "description": "Pizza con pomodoro, mozzarella, prosciutto, funghi e olive.",
+        "name": "Tortino di Patate e Porcini",
+        "description": "Potatoes and porcini pie with caciotta di Urbino fondue.",
         "price": 10.00,
-        "category": "primo",
+        "category": "antipasto",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Diavola",
-        "description": "Pizza con pomodoro, mozzarella e salame piccante.",
-        "price": 9.50,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Vegetariana",
-        "description": "Pizza con pomodoro, mozzarella e verdure grigliate.",
-        "price": 9.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Hawaiiana",
-        "description": "Pizza con pomodoro, mozzarella, prosciutto e ananas.",
+        "name": "Roastbeef Rosa",
+        "description": "Roastbeef like a carpaccio with Tonnata sauce or natural.",
         "price": 10.00,
-        "category": "primo",
+        "category": "antipasto",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Funghi e Mozzarella",
-        "description": "Pizza con pomodoro, mozzarella e funghi freschi.",
-        "price": 9.50,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Salsiccia e Friarielli",
-        "description": "Pizza con pomodoro, mozzarella, salsiccia e friarielli.",
-        "price": 11.00,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Pizza Bianca",
-        "description": "Pizza senza pomodoro, con mozzarella, ricotta e rosmarino.",
-        "price": 10.50,
-        "category": "primo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Saltimbocca alla Romana",
-        "description": "Fettine di vitello con prosciutto e salvia, cotte nel vino bianco.",
-        "price": 18.00,
-        "category": "secondo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Pollo alla Cacciatora",
-        "description": "Pollo cucinato con pomodori, olive e rosmarino.",
-        "price": 16.00,
-        "category": "secondo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Branzino al Sale",
-        "description": "Branzino cotto al forno in crosta di sale.",
-        "price": 22.00,
-        "category": "secondo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Osso Buco",
-        "description": "Stinco di vitello cucinato lentamente con gremolata.",
-        "price": 20.00,
-        "category": "secondo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Melanzane alla Parmigiana",
-        "description": "Strati di melanzane, salsa di pomodoro e mozzarella al forno.",
-        "price": 15.00,
-        "category": "secondo",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Tiramisu",
-        "description": "Dolce al cucchiaio con mascarpone, caffè e cacao.",
-        "price": 6.00,
-        "category": "dolce",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Panna Cotta",
-        "description": "Crema cotta servita con salsa di frutti di bosco.",
-        "price": 5.50,
-        "category": "dolce",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Cannoli Siciliani",
-        "description": "Cialde croccanti ripiene di ricotta e gocce di cioccolato.",
-        "price": 7.00,
-        "category": "dolce",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Profiteroles",
-        "description": "Bignè ripieni di crema e ricoperti di cioccolato.",
-        "price": 6.50,
-        "category": "dolce",
-        "is_available": true,
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "name": "Torta della Nonna",
-        "description": "Crostata con crema pasticcera e pinoli.",
+        "name": "Misticanza dell'Orto",
+        "description": "Mixed salad.",
         "price": 5.00,
-        "category": "dolce",
+        "category": "contorno",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
+    },
+    {
+        "name": "Verza con Patate Ripassate",
+        "description": "Steamed and sautéed cabbage and potatoes.",
+        "price": 6.00,
+        "category": "contorno",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Patate Fritte o Dippers",
+        "description": "Fried potatoes or Dippers.",
+        "price": 5.00,
+        "category": "contorno",
+        "is_available": true,
+        "image": ""
     },
     {
         "name": "Patate al Forno",
-        "description": "Patate arrosto con rosmarino e olio d'oliva.",
+        "description": "Baked potatoes.",
         "price": 5.00,
         "category": "contorno",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Verdure Grigliate",
-        "description": "Selezione di verdure di stagione grigliate.",
+        "name": "Spinaci all'Aglio o Naturale",
+        "description": "Sautéed spinach.",
+        "price": 5.00,
+        "category": "contorno",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Verdure alla Brace",
+        "description": "Grilled vegetables.",
         "price": 6.00,
         "category": "contorno",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Insalata Mista",
-        "description": "Insalata fresca con pomodori, cetrioli e carote.",
+        "name": "Indivia Grigliata",
+        "description": "Grilled endive with butter and pink pepper.",
+        "price": 6.00,
+        "category": "contorno",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Caramelle di Ricotta e Porcini",
+        "description": "Porcini mushrooms and ricotta cheese filled pasta with datterini tomatoes and burrata cheese.",
+        "price": 12.00,
+        "category": "primo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Rigatoni alla Carbonara",
+        "description": "Carbonara sauce Rigatoni.",
+        "price": 10.00,
+        "category": "primo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Passatelli Porcini, Noci e Salsiccia",
+        "description": "Traditional homemade pasta with porcini mushrooms, nuts and sausage.",
+        "price": 12.00,
+        "category": "primo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Barrette Verdi",
+        "description": "Ricotta cheese and braised rabbit filled pasta with cheese and pepper sauce.",
+        "price": 13.00,
+        "category": "primo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Gnocchi di Patate",
+        "description": "Potato gnocchi with cherry tomatoes, fried eggplant and basil pesto.",
+        "price": 12.00,
+        "category": "primo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Faraona alla Brace",
+        "description": "Guinea fowl marinated and cooked on the grill, served with sautéed cabbage and potatoes.",
+        "price": 16.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Guancetta di Manzo",
+        "description": "Beef cheek braised in red wine served with mashed potatoes.",
+        "price": 19.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Hamburger di Angus",
+        "description": "Hamburger with bacon, caramelized onion and cheddar served with Dippers potatoes.",
+        "price": 14.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Tagliata di Scottona",
+        "description": "Grilled beef sirloin with Maldon salt and rosemary served with salad and sweet sour onions.",
+        "price": 20.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Non la Solita Grigliata",
+        "description": "Grilled meat pork and chicken with vegetables.",
+        "price": 18.00,
+        "category": "secondo",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Amatriciana",
+        "description": "Tomato sauce, mozzarella cheese, bacon, red onions and chili pepper",
+        "price": 8.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Fornarina",
+        "description": "Olive oil, salt and rosemary",
+        "price": 4.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Marinara",
+        "description": "Tomato sauce, garlic oil and parsley",
         "price": 4.50,
-        "category": "contorno",
+        "category": "pizza",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Fagiolini al Vapore",
-        "description": "Fagiolini freschi cotti al vapore e conditi.",
+        "name": "Margherita",
+        "description": "Tomato sauce and mozzarella cheese",
         "price": 5.50,
-        "category": "contorno",
+        "category": "pizza",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Cavolfiore Gratinate",
-        "description": "Cavolfiore al forno con besciamella e formaggio.",
-        "price": 6.50,
-        "category": "contorno",
+        "name": "Calabria",
+        "description": "Tomato sauce, mozzarella cheese, spicy salami, red onions, peppers, buffalo mozzarella cheese and basil",
+        "price": 10.00,
+        "category": "pizza",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Acqua Naturale",
-        "description": "Acqua minerale naturale.",
-        "price": 2.00,
+        "name": "Calzone",
+        "description": "Tomato sauce, mozzarella cheese, mushrooms and ham",
+        "price": 8.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Meridionale",
+        "description": "Mozzarella cheese, spicy salami, steamed turnip leafs and burrata cheese",
+        "price": 10.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Ortolana",
+        "description": "Tomato sauce, mozzarella cheese, eggplants, spinach, arugula and red lettuce",
+        "price": 8.50,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Santa Rosa",
+        "description": "Buffalo mozzarella cheese, porcini mushrooms and cherry tomatoes",
+        "price": 10.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Parmigiana",
+        "description": "Tomato sauce, mozzarella cheese, grilled eggplants and parmesan cheese",
+        "price": 8.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Odessa",
+        "description": "Tomato sauce, mozzarella cheese, spicy salami, blue cheese and eggplants",
+        "price": 9.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Bacon",
+        "description": "Mozzarella cheese, bacon and baked potatoes",
+        "price": 9.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Dakota",
+        "description": "Tomato sauce, mozzarella cheese, baked potatoes, sausage, cherry tomatoes and breadcrumbs",
+        "price": 10.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "D.O.C.",
+        "description": "Tomato sauce, buffalo mozzarella cheese, cherry tomatoes and basil",
+        "price": 9.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "T-Boy",
+        "description": "Mozzarella cheese, zucchini, bacon, spinach, burrata cheese and parmesan",
+        "price": 11.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Stracchino e Rucola",
+        "description": "Mozzarella cheese, stracchino cheese and arugula",
+        "price": 8.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Santa Monica",
+        "description": "Mozzarella cheese, ham and burrata cheese",
+        "price": 10.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Sfiziosa",
+        "description": "Mozzarella cheese, ham, arugula and parmesan cheese",
+        "price": 9.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Bad Girl",
+        "description": "Mozzarella cheese, anchovies, capers, smoked scamorza cheese, red onion, cherry tomatoes, oregano and basil",
+        "price": 9.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Contadina",
+        "description": "Mozzarella cheese, sausage and spinach",
+        "price": 8.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Gratinata",
+        "description": "Tomato sauce, mozzarella cheese, zucchini, eggplants, cherry tomatoes and breadcrumbs",
+        "price": 8.50,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Sud Ovest",
+        "description": "Tomato sauce, garlic oil and parsley with anchovies, olives, lemon powder and burrata cheese",
+        "price": 14.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Evergreen",
+        "description": "Tomato sauce, mozzarella cheese, grilled zucchini, grilled eggplants and grilled peppers",
+        "price": 9.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Tirolese",
+        "description": "Mozzarella cheese, smoked ham, smoked scamorza cheese and baked red lettuce",
+        "price": 9.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Orientale",
+        "description": "Mozzarella cheese, tuna tataki with black sesame, soy sauce and cream cheese",
+        "price": 15.00,
+        "category": "pizza",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Rotolo alla Crema di Pistacchio",
+        "description": "Pistachio cream roll with vanilla ice cream.",
+        "price": 6.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Spuma di Tiramisu",
+        "description": "Mascarpone cream.",
+        "price": 5.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Torta allo Yogurt Greco",
+        "description": "Greek yogurt cheesecake with fruit and salted caramel.",
+        "price": 6.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Panna Cotta",
+        "description": "Cream pudding: berries, chocolate, caramel, or strawberry.",
+        "price": 5.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Brownie al Cioccolato",
+        "description": "Chocolate brownie served with cream.",
+        "price": 6.00,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Tartufo",
+        "description": "Ice cream: cream or chocolate or topped with coffee or Gran Marnier.",
+        "price": 5.50,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Meringata",
+        "description": "Baked ice cream meringue or topped with Gran Marnier.",
+        "price": 5.50,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Gelato al Cocco o Limone",
+        "description": "Coconut or lemon ice cream.",
+        "price": 5.50,
+        "category": "dolce",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Caffè",
+        "description": "Coffee.",
+        "price": 1.20,
         "category": "bevande",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Acqua Frizzante",
-        "description": "Acqua minerale frizzante.",
-        "price": 2.50,
+        "name": "Caffè d'Orzo",
+        "description": "Barley coffee.",
+        "price": 1.20,
         "category": "bevande",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Coca-Cola",
-        "description": "Bibita gassata al gusto di cola.",
+        "name": "Caffè Corretto",
+        "description": "Spiked coffee.",
+        "price": 1.50,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Caffè Deca",
+        "description": "Decaffeinated coffee.",
+        "price": 1.50,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Ginseng",
+        "description": "Ginseng coffee.",
+        "price": 1.50,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Digestivi e Liquori Nazionali",
+        "description": "Digestif and Italian liquor.",
         "price": 3.00,
         "category": "bevande",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Birra Artigianale",
-        "description": "Birra artigianale locale.",
-        "price": 5.00,
+        "name": "Liquori Esteri",
+        "description": "Foreign liquor.",
+        "price": 3.50,
         "category": "bevande",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Vino Rosso della Casa",
-        "description": "Vino rosso locale servito al calice.",
+        "name": "Grappa Barrique",
+        "description": "Aged grappa.",
         "price": 4.00,
         "category": "bevande",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
     },
     {
-        "name": "Vino Bianco della Casa",
-        "description": "Vino bianco locale servito al calice.",
-        "price": 4.00,
+        "name": "Acqua Minerale",
+        "description": "Mineral water (0.75L/2€, 0.5L/1€).",
+        "price": 2.00,
         "category": "bevande",
         "is_available": true,
-        "image": "https://via.placeholder.com/150"
+        "image": ""
+    },
+    {
+        "name": "Coca Cola alla Spina",
+        "description": "Draft Coca Cola (1L/6.50€, 0.3L/2.50€).",
+        "price": 6.50,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Bibite in Lattina",
+        "description": "Coca Cola, Fanta, Sprite, Tea Lipton (0.33L/3€).",
+        "price": 3.00,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Pepsi Cola Bottiglia in Vetro",
+        "description": "Pepsi cola glass bottle (1L/4.50€).",
+        "price": 4.50,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Birre alla Spina",
+        "description": "Draft beers: Lager, Belgian, and monthly specials.",
+        "price": 8.00,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
+    },
+    {
+        "name": "Birre in Bottiglia",
+        "description": "Selection of bottled beers: Italian, German, Mexican, Belgian.",
+        "price": 4.50,
+        "category": "bevande",
+        "is_available": true,
+        "image": ""
     }
 ]

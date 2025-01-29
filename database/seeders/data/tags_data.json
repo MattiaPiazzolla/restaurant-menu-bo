@@ -12,6 +12,9 @@
         "name": "Mandorla"
     },
     {
+        "name": "caffe"
+    },
+    {
         "name": "Peanut"
     },
     {
@@ -54,9 +57,6 @@
         "name": "Cacao"
     },
     {
-        "name": "Caffè"
-    },
-    {
         "name": "Spezie"
     }, {
         "name": "Vegano"
@@ -74,5 +74,21 @@
     },
     {
         "name": "Tradizionale"
+    },
+    {
+        "name": "birre"
+    },
+    {
+        "name": "vini"
+    },
+    {
+        "name": "liquori"
+    },
+    {
+        "name": "caffe e digestivi"
+    },
+    {
+        "name": "bevande generiche"
     }
+    
 ]

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Menu;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,19 +16,30 @@ class TagMenuSeeder extends Seeder
      */
     public function run()
     {
-        // Leggi il contenuto del file JSON
-        $tagMenuData = file_get_contents(database_path('seeders/data/tag_menu_data.json'));
-        $data = json_decode($tagMenuData, true);
+        // Get all existing menu and tag IDs
+        $menuIds = Menu::pluck('id')->toArray();
+        $tagIds = Tag::pluck('id')->toArray();
 
-        // Inserisci le associazioni nella tabella ponte
-        foreach ($data as $item) {
-            $menuId = $item['menu_id'];
-            foreach ($item['tag_ids'] as $tagId) {
-                DB::table('menu_tag')->insert([
+        $tagMenuPairs = [];
+        
+        // Create relationships only for existing menus
+        foreach ($menuIds as $menuId) {
+            // Randomly assign 1-3 tags to each menu
+            $numberOfTags = rand(1, 3);
+            $selectedTags = array_rand(array_flip($tagIds), min($numberOfTags, count($tagIds)));
+            
+            if (!is_array($selectedTags)) {
+                $selectedTags = [$selectedTags];
+            }
+
+            foreach ($selectedTags as $tagId) {
+                $tagMenuPairs[] = [
                     'menu_id' => $menuId,
-                    'tag_id' => $tagId
-                ]);
+                    'tag_id' => $tagId,
+                ];
             }
         }
+
+        DB::table('menu_tag')->insert($tagMenuPairs);
     }
 }

@@ -22,6 +22,7 @@ class MenuController extends Controller
         $categories = [
             'antipasto' => ['🥗', 'Antipasto'],
             'primo' => ['🍝', 'Primo'],
+            'pizza' => ['🍕', 'Pizza'],
             'secondo' => ['🥩', 'Secondo'],
             'contorno' => ['🥬', 'Contorno'],
             'dolce' => ['🍰', 'Dolce'],
@@ -117,11 +118,19 @@ class MenuController extends Controller
     }
 
     public function edit($id)
-    {
-        $menu = Menu::findOrFail($id);
-        $tags = Tag::all();  // Carica tutti i tag dalla tabella tags
-        return view('menus.edit', compact('menu', 'tags'));  
-    }
+{
+    $menu = Menu::findOrFail($id);
+    $tags = Tag::all();
+    $categories = [
+        'antipasto' => ['🥗', 'Antipasto'],
+        'primo' => ['🍝', 'Primo'],
+        'secondo' => ['🥩', 'Secondo'],
+        'contorno' => ['🥬', 'Contorno'],
+        'dolce' => ['🍰', 'Dolce'],
+        'bevande' => ['🥤', 'Bevande']
+    ];
+    return view('menus.edit', compact('menu', 'tags', 'categories'));
+}
 
     /**
      * Aggiorna un piatto esistente nel menu.
