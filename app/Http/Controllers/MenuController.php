@@ -93,7 +93,7 @@ class MenuController extends Controller
             'category' => 'required|string',
             'tags' => 'array|nullable',
             'tags.*' => 'exists:tags,id',  // Verifica che gli ID dei tag esistano
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validazione immagine
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096', // Validazione immagine
         ]);
     
         // Creazione del nuovo piatto
@@ -151,7 +151,7 @@ class MenuController extends Controller
             'category' => 'required|string',
             'tags' => 'nullable|array',  
             'tags.*' => 'exists:tags,id',  
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096', 
         ]);
     
         // Aggiorna i dati del piatto
