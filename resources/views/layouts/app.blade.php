@@ -45,6 +45,11 @@
                            class="nav-link inline-flex items-center py-2 px-4 text-sm rounded-full bg-green-600 text-white hover:bg-green-700 transition-colors duration-300">
                             {{ __('Stato Ristorante') }} <i class="ml-2 fas fa-store"></i>
                         </a>
+
+                        <a href="{{ route('schedules.index') }}" 
+                           class="nav-link inline-flex items-center py-2 px-4 text-sm rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300">
+                            {{ __('Orari') }} <i class="ml-2 fas fa-clock"></i>
+                        </a>
                         
                         @auth
                             <form method="POST" action="{{ route('logout') }}">
@@ -95,6 +100,11 @@
                         <a href="{{ route('restaurant-status.index') }}" 
                            class="no-underline inline-flex items-center px-3 py-2 text-sm rounded-full font-medium bg-green-600 text-white hover:bg-green-700 transition-colors duration-300">
                             <i class="fas fa-store"></i>
+                        </a>
+
+                        <a href="{{ route('schedules.index') }}" 
+                           class="no-underline inline-flex items-center px-3 py-2 text-sm rounded-full font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300">
+                            <i class="fas fa-clock"></i>
                         </a>
                     </div>
                 </div>

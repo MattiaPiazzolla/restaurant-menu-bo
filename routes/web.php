@@ -3,6 +3,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RestaurantStatusController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,12 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('menus', MenuController::class);
@@ -35,6 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/reservations/{reservation}/toggle-arrived', [ReservationController::class, 'toggleArrived'])->name('reservations.toggleArrived');
     Route::get('/restaurant-status', [RestaurantStatusController::class, 'index'])->name('restaurant-status.index');
     Route::patch('/restaurant-status/toggle', [RestaurantStatusController::class, 'toggle'])->name('restaurant-status.toggle');
+    
+    // Add schedule routes inside the authenticated group
+    Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.index');
+    Route::post('/schedules', [ScheduleController::class, 'update'])->name('schedules.update');
 });
 
 // API Route (public)
