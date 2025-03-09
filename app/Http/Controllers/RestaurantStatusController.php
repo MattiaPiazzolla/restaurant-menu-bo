@@ -16,7 +16,9 @@ class RestaurantStatusController extends Controller
     {
         $status = RestaurantStatus::first();
         $status->update(['is_open' => !$status->is_open]);
-        return back()->with('success', 'Status updated successfully');
+        
+        return redirect()->route('schedules.index')
+            ->with('success', 'Stato del ristorante aggiornato con successo');
     }
 
     public function getStatus()

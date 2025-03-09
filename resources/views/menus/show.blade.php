@@ -6,20 +6,36 @@
 <style>
     [x-cloak] { display: none !important; }
 
+    @keyframes fadeInOut {
+        0% { opacity: 0; }
+        5% { opacity: 1; }
+        95% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    @keyframes slideOut {
+        from { width: 100%; }
+        to { width: 0%; }
+    }
 </style>
 
-<div class=" bg-gray-100" x-data="{ showDeleteModal: false }">
+<div class=" bg-gray-100" x-data="{ showDeleteModal: false, menuId: {{ $menu->id }} }">
     @if (session('success'))
-    <div class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
-        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-lg relative"
-             style="animation: fadeInOut 5s forwards;">
+    <div x-data="{ show: true }" 
+         x-init="setTimeout(() => { show = false }, 5000)"
+         x-show="show"
+         x-transition.opacity.duration.300ms
+         @click="show = false"
+         class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md cursor-pointer"
+         role="alert"
+         aria-label="Success message. Click to dismiss">
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-lg relative hover:bg-green-50 transition-colors duration-150">
             <div class="flex items-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
                 {{ session('success') }}
             </div>
-            <div class="mt-2">
+            <div class="mt-2" x-show="show">
                 <div class="slider" style="width: 100%; height: 2px; background-color: #e2e8f0;">
                     <div class="slider-fill" style="width: 100%; height: 100%; background-color: #48bb78; animation: slideOut 5s linear forwards;"></div>
                 </div>
@@ -184,7 +200,7 @@
                         </div>
                     </div>
                     <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                        <form :action="'/menus/' + currentMenuId" method="POST" class="inline-block w-full sm:w-auto">
+                        <form :action="'/menus/' + menuId" method="POST" class="inline-block w-full sm:w-auto">
                             @csrf
                             @method('DELETE')
                             <button type="submit" 

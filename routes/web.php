@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
-});
+    return view('welcome');
+})->name('welcome');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('menus', MenuController::class);
@@ -30,7 +30,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/reservations/past', [ReservationController::class, 'destroyPast'])->name('reservations.destroyPast');
     Route::resource('reservations', ReservationController::class);
     Route::patch('/reservations/{reservation}/toggle-arrived', [ReservationController::class, 'toggleArrived'])->name('reservations.toggleArrived');
-    Route::get('/restaurant-status', [RestaurantStatusController::class, 'index'])->name('restaurant-status.index');
     Route::patch('/restaurant-status/toggle', [RestaurantStatusController::class, 'toggle'])->name('restaurant-status.toggle');
     
     // Add schedule routes inside the authenticated group

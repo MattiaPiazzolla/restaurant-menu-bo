@@ -1,46 +1,53 @@
 <x-app-layout>
     <div class="min-h-screen bg-gray-50/50">
-        <!-- Restaurant Status Section -->
-        <div class="max-w-3xl mx-auto px-4 pt-8 sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg backdrop-blur-sm bg-white/80 mb-8">
-                <div class="p-6">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full flex items-center justify-center {{ $status->is_open ? 'bg-green-50' : 'bg-red-50' }}">
-                                <span class="text-2xl {{ $status->is_open ? 'text-green-500' : 'text-red-500' }}">
-                                    {{ $status->is_open ? '●' : '●' }}
-                                </span>
-                            </div>
-                            <div>
-                                <h2 class="text-lg font-medium text-gray-900">Stato del Ristorante</h2>
-                                <p class="text-sm text-gray-500">{{ $status->is_open ? 'Aperto' : 'Chiuso' }}</p>
-                            </div>
+     <!-- Restaurant Status Section -->
+    <div class="max-w-3xl mx-auto px-4 pt-8 sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg backdrop-blur-sm bg-white/80 mb-8">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center {{ $status->is_open ? 'bg-green-50' : 'bg-red-50' }}">
+                            <span class="text-2xl {{ $status->is_open ? 'text-green-500' : 'text-red-500' }}">
+                                {{ $status->is_open ? '●' : '●' }}
+                            </span>
                         </div>
-                        <form method="POST" action="{{ route('restaurant-status.toggle') }}">
-                            @csrf
-                            @method('PATCH')
-                            <button type="submit" 
-                                class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium text-sm py-2 px-4 rounded-full transition duration-300 ease-in-out">
-                                {{ $status->is_open ? 'Imposta come Chiuso' : 'Imposta come Aperto' }}
-                            </button>
-                        </form>
+                        <div>
+                            <h2 class="text-lg font-medium text-gray-900">Stato del Ristorante</h2>
+                            <p class="text-sm text-gray-500">{{ $status->is_open ? 'Aperto' : 'Chiuso' }}</p>
+                        </div>
                     </div>
+                    <form method="POST" action="{{ route('restaurant-status.toggle') }}">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" 
+                            title="Cambia temporaneamente lo stato del ristorante per occasioni speciali"
+                            class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium text-sm py-2 px-4 rounded-full transition duration-300 ease-in-out">
+                            {{ $status->is_open ? 'Imposta come Chiuso' : 'Imposta come Aperto' }}
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
         <!-- Success Message -->
         @if (session('success'))
-        <div class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
-            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-lg relative"
-                style="animation: fadeInOut 5s forwards;">
+        <div x-data="{ show: true }" 
+             x-init="setTimeout(() => { show = false }, 5000)"
+             x-show="show"
+             x-transition.opacity.duration.300ms
+             @click="show = false"
+             class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md cursor-pointer"
+             role="alert"
+             aria-label="Success message. Click to dismiss">
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-lg relative hover:bg-green-50 transition-colors duration-150">
                 <div class="flex items-center">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                     {{ session('success') }}
                 </div>
-                <div class="mt-2">
+                <div class="mt-2" x-show="show">
                     <div class="slider" style="width: 100%; height: 2px; background-color: #e2e8f0;">
                         <div class="slider-fill" style="width: 100%; height: 100%; background-color: #48bb78; animation: slideOut 5s linear forwards;"></div>
                     </div>
@@ -82,7 +89,7 @@
                             <input type="hidden" name="schedules[{{ $schedule->id }}][id]" value="{{ $schedule->id }}">
                             
                             <!-- Day Header -->
-                            <div class="flex items-center justify-between p-4 sm:px-6">
+                            <div class="flex items-center justify-between p-4 sm:px-6" data-schedule-id="{{ $schedule->id }}">
                                 <h3 class="text-base font-medium text-gray-900">
                                     {{ $italianDays[$schedule->day] ?? $schedule->day }}
                                 </h3>
@@ -217,7 +224,65 @@
                 }, 200);
             });
         }
+
+        async function updateSchedule(scheduleId, data) {
+            try {
+                const response = await fetch(`/api/schedules/${scheduleId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.innerHTML = `
+                    <div class="fixed top-4 right-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+                        Orario aggiornato con successo
+                    </div>
+                `;
+                document.body.appendChild(successMessage);
+                setTimeout(() => successMessage.remove(), 3000);
+
+                return result;
+            } catch (error) {
+                console.error('Error:', error);
+                // Show error message
+                const errorMessage = document.createElement('div');
+                errorMessage.innerHTML = `
+                    <div class="fixed top-4 right-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+                        Errore durante l'aggiornamento
+                    </div>
+                `;
+                document.body.appendChild(errorMessage);
+                setTimeout(() => errorMessage.remove(), 3000);
+            }
+        }
+
+        // Add event listeners to form inputs for automatic updates
+        document.querySelectorAll('input[type="time"], input[type="checkbox"]').forEach(input => {
+            input.addEventListener('change', async (e) => {
+                const scheduleId = e.target.closest('[data-schedule-id]').dataset.scheduleId;
+                const container = e.target.closest('.bg-white');
+                const data = {
+                    is_open: container.querySelector('input[type="checkbox"]').checked,
+                    lunch_opening: container.querySelector('input[name$="[lunch_opening]"]').value,
+                    lunch_closing: container.querySelector('input[name$="[lunch_closing]"]').value,
+                    dinner_opening: container.querySelector('input[name$="[dinner_opening]"]').value,
+                    dinner_closing: container.querySelector('input[name$="[dinner_closing]"]').value,
+                };
+                await updateSchedule(scheduleId, data);
+            });
+        });
     </script>
     @endpush
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </x-app-layout>
 

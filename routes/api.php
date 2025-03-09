@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MenuApiController;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\RestaurantStatusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,15 @@ use App\Http\Controllers\Api\MenuApiController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('/menus', [MenuApiController::class, 'index']);
 Route::get('/menus/{id}', [MenuApiController::class, 'show']);
 Route::get('/categories', [MenuApiController::class, 'getCategories']);
+Route::get('/schedules', [ScheduleController::class, 'apiIndex']); // Moved outside auth middleware
+Route::get('/restaurant-status', [RestaurantStatusController::class, 'getStatus'])->name('api.restaurant.status');
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::put('/schedules/{schedule}', [ScheduleController::class, 'apiUpdate']);
+});

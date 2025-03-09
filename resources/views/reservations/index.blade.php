@@ -1,35 +1,44 @@
 <x-app-layout>
-    <x-slot name="header">
-        <div class="flex justify-between items-center py-3">
-            <h2 class="text-xl font-medium text-gray-800 tracking-tight">
-                {{ __('Prenotazioni Tavoli') }}
-            </h2>
-            <a href="{{ route('reservations.create') }}" 
-               class="group bg-gradient-to-b from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 text-gray-800 text-sm py-2 px-4 rounded-md border border-gray-200 shadow-sm transition-all duration-300 ease-out flex items-center gap-2 hover:scale-[1.02] hover:shadow-md"
-               style="text-decoration: none;">
-                <span class="h-5 w-5 rounded-full bg-gray-800 group-hover:bg-gray-700 flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 5v14m-7-7h14"></path>
-                    </svg>
-                </span>
-                <span>Nuova Prenotazione</span>
-            </a>
-        </div>
-    </x-slot>
 
-    <div class="py-12 bg-gray-50" x-data="{ showDeleteModal: false, currentReservationId: null, reservationName: '' }">
+    <div class="py-4 bg-gray-50" x-data="{ showDeleteModal: false, currentReservationId: null, reservationName: '' }">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
+            <div class="flex justify-between items-center py-3 px-4 bg-white rounded-2xl shadow-sm">
+                <h2 class="text-xl m-0 font-medium tracking-tight text-gray-800">
+                    {{ __('Prenotazioni Tavoli') }}
+                </h2>
+                
+                <a href="{{ route('reservations.create') }}" 
+                   class="group inline-flex items-center no-underline gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300">
+                    
+                    <span class="text-gray-500 group-hover:text-indigo-500 transform group-hover:rotate-90 transition-all duration-300">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                    </span>
+                    
+                    <span class="text-sm text-gray-600 group-hover:text-indigo-500 transition-colors duration-300">
+                        Nuova Prenotazione
+                    </span>
+                </a>
+            </div>
+
             @if (session('success'))
-            <div class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
-                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-lg relative"
-                     style="animation: fadeInOut 5s forwards;">
+            <div x-data="{ show: true }" 
+                 x-init="setTimeout(() => { show = false }, 5000)"
+                 x-show="show"
+                 x-transition.opacity.duration.300ms
+                 @click="show = false"
+                 class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md cursor-pointer"
+                 role="alert"
+                 aria-label="Success message. Click to dismiss">
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-lg relative hover:bg-green-50 transition-colors duration-150">
                     <div class="flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                         {{ session('success') }}
                     </div>
-                    <div class="mt-2">
+                    <div class="mt-2" x-show="show">
                         <div class="slider" style="width: 100%; height: 2px; background-color: #e2e8f0;">
                             <div class="slider-fill" style="width: 100%; height: 100%; background-color: #48bb78; animation: slideOut 5s linear forwards;"></div>
                         </div>
@@ -278,4 +287,5 @@
             </div>
         </div>
     </div>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </x-app-layout>

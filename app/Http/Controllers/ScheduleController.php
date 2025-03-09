@@ -33,4 +33,29 @@ class ScheduleController extends Controller
         return redirect()->route('schedules.index')
             ->with('success', 'Orari aggiornati con successo!');
     }
+
+    public function apiIndex()
+    {
+        $schedules = Schedule::orderByRaw("FIELD(day, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')")->get();
+        $status = RestaurantStatus::first();
+        return response()->json([
+            'schedules' => $schedules,
+            'status' => $status
+        ]);
+    }
+
+    public function apiUpdate(Request $request, Schedule $schedule)
+    {
+        $validated = $request->validate([
+            'is_open' => 'required|boolean',
+            'lunch_opening' => 'nullable|date_format:H:i',
+            'lunch_closing' => 'nullable|date_format:H:i',
+            'dinner_opening' => 'nullable|date_format:H:i',
+            'dinner_closing' => 'nullable|date_format:H:i',
+        ]);
+
+        $schedule->update($validated);
+
+        return response()->json($schedule);
+    }
 }
